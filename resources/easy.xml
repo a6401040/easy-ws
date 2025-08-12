@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+
+<!--  提供spring配置文件集成功能  -->
+
+	<!-- client -->
+    <bean id="easyClient" class="org.easyws.work.callee.Callee">
+    	<property name="client">
+			<ref local="client" />
+		</property>	
+		
+		 <!-- 配置ip -->
+        <property name="ip"> 
+           <value>127.0.0.1</value> 
+        </property>
+        <!-- 配置端口 -->
+        <property name="port">  
+            <value>9088</value> 
+        </property>
+        <!-- 配置服务名 -->
+        <property name="serviceName">  
+             <value>zql/easyWs</value> 
+        </property>
+        
+        <!-- 连接超时 秒-->
+        <property name="conncetTimeout">  
+             <value>60</value> 
+        </property>
+        
+        <!-- 读出超时 秒-->
+        <property name="readTimeout">  
+             <value>180</value> 
+        </property>
+        
+    </bean> 
+    
+    
+    
+   <!-- Server -->  	
+   <bean id="easyServer" class="org.easyws.work.caller.EasyCaller" init-method="initEasyWs">
+   
+        <!-- 配置接口规范  构造方法注入 -->
+        <constructor-arg type="org.easyws.stardand.Serverable">
+          <ref bean="facade"/>
+        </constructor-arg>  
+        
+        <!-- 配置ip -->
+        <constructor-arg value="127.0.0.1" />  
+        <!-- 配置端口 -->
+        <constructor-arg value="9088" />  
+        <!-- 配置服务名 -->
+        <constructor-arg value="zql/easyWs" />  
+
+    </bean>
+
+	
+
+      <!-- facade 配置入口对象-->
+      <bean id="facade" class="org.easyws.jaxb.standard.server.ServerImpl">
+	  </bean>
+	  
+	  <!-- client 配置入口对象-->
+      <bean id="client" class="org.easyws.jaxb.standard.client.ClientImpl">
+	  </bean>
+</beans>
