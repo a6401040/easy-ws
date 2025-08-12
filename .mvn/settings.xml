@@ -4,7 +4,8 @@
           xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 
           http://maven.apache.org/xsd/settings-1.0.0.xsd">
     
-    <localRepository>${user.home}/.m2/repository</localRepository>
+    <!-- <localRepository>${user.home}/.m2/repository</localRepository> -->
+      <localRepository>D:\study\Java\maven-repo</localRepository>
     
     <mirrors>
         <mirror>
@@ -17,14 +18,14 @@
     
     <profiles>
         <profile>
-            <id>jdk-1.6</id>
+            <id>JavaSE-24</id>
             <activation>
-                <jdk>1.6</jdk>
+                <jdk>JavaSE-24</jdk>
             </activation>
             <properties>
-                <maven.compiler.source>1.6</maven.compiler.source>
-                <maven.compiler.target>1.6</maven.compiler.target>
-                <maven.compiler.compilerVersion>1.6</maven.compiler.compilerVersion>
+                <maven.compiler.source>24</maven.compiler.source>
+                <maven.compiler.target>24</maven.compiler.target>
+                <maven.compiler.compilerVersion>24</maven.compiler.compilerVersion>
             </properties>
         </profile>
     </profiles>
