@@ -25,19 +25,14 @@ easy-ws/
 └── README.md           # 项目说明
 ```
 ### 🎯 核心功能
-1. 1.
-   WebService客户端-服务端架构
+1. WebService客户端-服务端架构
    
    - 服务端: Server 接口及实现 ServerImpl
    - 客户端: Client 接口及实现 ClientImpl
-2. 2.
-   实体类
-   
+2. 示例：实体类
    - Student : 学生实体 (id, name, sex)
    - Teacher : 教师实体 (name, lesson)
-3. 3.
-   服务接口
-   
+3. 示例：服务接口
    - getStudentName(String id) : 根据ID获取学生姓名
    - getTeacher(Student student) : 根据学生获取教师信息
 ### 🔧 技术配置
